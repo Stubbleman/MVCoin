@@ -149,8 +149,8 @@
             this.Text = "Form1";
             this.TopMost = true;
             this.Load += new System.EventHandler(this.Form1_Load);
-            this.Click += new System.EventHandler(this.Form1_Click);
             this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseClick);
+            this.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseDoubleClick);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseDown);
             this.MouseEnter += new System.EventHandler(this.Form1_MouseEnter);
             this.MouseLeave += new System.EventHandler(this.Form1_MouseLeave);

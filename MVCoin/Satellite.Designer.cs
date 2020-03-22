@@ -39,6 +39,7 @@
             this.Name = "Satellite";
             this.Text = "Satellite";
             this.Load += new System.EventHandler(this.Satellite_Load);
+            this.Shown += new System.EventHandler(this.Satellite_Shown);
             this.ResumeLayout(false);
 
         }

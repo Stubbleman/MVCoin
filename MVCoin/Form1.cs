@@ -30,13 +30,15 @@ namespace MVCoin
             this.FormBorderStyle = FormBorderStyle.None;
             this.Opacity = 0;
 
-            formController = new FormControl(100, 115);
+            formController = new FormControl();
             formController.myForm = this;
+            formController.setSize(100, 115);
             //formController.setWidth(100);
             //formController.setHeighth(115);
             formController.ChangeFormSize(100);
             //ChangeFormSize(100); // Change size by given percentage
-            this.Location = new Point(Cursor.Position.X - this.Width / 2, Cursor.Position.Y - this.Height / 2);
+            //this.Location = new Point(Cursor.Position.X - this.Width / 2, Cursor.Position.Y - this.Height / 2);
+            formController.setCenter(Cursor.Position.X, Cursor.Position.Y);
 
             animater = new Animation();
             animater.setDuration(100);
@@ -61,8 +63,8 @@ namespace MVCoin
         }
 
         private void Form1_MouseClick(object sender, MouseEventArgs e)
-        {
-            if(e.Button == MouseButtons.Right)
+        {            
+            if (e.Button == MouseButtons.Right)
                 contextMenuStrip1.Show(MousePosition);
         }
 
@@ -106,13 +108,7 @@ namespace MVCoin
         }
 
         /***Change form size***/
-        /*
-        public void ChangeFormSize(int percentage)
-        {
-            const int width = 100, height = 115;
-            this.Size = new Size(width * percentage / 100, height * percentage / 100);
-        }
-        */
+
         private void toolStripMenuItem300_Click(object sender, EventArgs e)
         {
             formController.ChangeFormSize(300);
@@ -147,10 +143,8 @@ namespace MVCoin
 
         private void testToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //animater.run(this, Animation.Effect.FADEOUT);
-            //stickyCommand("do new sticky Test");
-
-
+            //animater.setFlyToDst(new Point(Screen.PrimaryScreen.Bounds.Width / 2, Screen.PrimaryScreen.Bounds.Height / 2));
+            animater.run(this, Animation.Effect.FLYTO);
         }
 
         private void Form1_MouseLeave(object sender, EventArgs e)
@@ -173,28 +167,32 @@ namespace MVCoin
                 
         }
 
-        private void stickyCommand(string str)
+        private void Form1_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            /***Send stickies command***/            
+            callSatellites();
+        }
+
+        private void stickyCommand(string str)
+        {     
             string reply = stickiesController.SendToStickies(str);
             if (reply.Length == 0)
                 MessageBox.Show("ERROR");
             //else
                 //MessageBox.Show(reply);
-            /***Send stickies command***/
         }
 
-        private void Form1_Click(object sender, EventArgs e)
+        private void callSatellites()
         {
             List<Satellite> satellites = new List<Satellite>();
             int satelliteNumber = 3;
-            for(int i = 0; i<satelliteNumber; i++)
+            for (int i = 0; i < satelliteNumber; i++)
             {
                 satellites.Add(new Satellite());
                 satellites[i].setBackgroundeImg(Image.FromFile("../../Icon/satellite1.png"));
+                satellites[i].Location = new Point(0, 0); //formController.getCenter();
+                satellites[i].Size = new Size(300, 300);
                 satellites[i].Show();
             }
-
         }
     }
 }

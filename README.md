@@ -1,4 +1,5 @@
 # MVCoin
+20200322
 A lovely desktop widget can help you do many things~~
 
 ## Feature
@@ -6,6 +7,7 @@ A lovely desktop widget can help you do many things~~
 - Anti-aliasing main MVCoin
 - Send command to Stickies
 
-## Bug Fix
+## Bug Fixed
 
 ## Future Works
+- Some memory occupied issues

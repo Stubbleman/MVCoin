@@ -12,7 +12,8 @@ namespace MVCoin
 {
     public partial class Satellite : Form
     {
-        private Animation animater;
+        private Animation effectAni;
+        private Animation motionAni;
         private FormControl formController;
 
         public Satellite()
@@ -27,16 +28,10 @@ namespace MVCoin
             this.FormBorderStyle = FormBorderStyle.None;
             this.Opacity = 0;
 
-            formController = new FormControl(Form1.ActiveForm.Width, Form1.ActiveForm.Height);
+            formController = new FormControl();
             formController.myForm = this;
-            //formController.setWidth(Form1.ActiveForm.Width);
-            //formController.setHeighth(Form1.ActiveForm.Height);
+            formController.setSize(100, 115);
             formController.ChangeFormSize(50);
-
-            animater = new Animation();
-            animater.setDuration(100);
-            animater.setInverval(5);
-            animater.run(this, Animation.Effect.FADEIN);
         }
 
         public void setBackgroundeImg(Image bgImg)
@@ -45,5 +40,17 @@ namespace MVCoin
             this.BackgroundImageLayout = ImageLayout.Stretch;
         }
 
+        private void Satellite_Shown(object sender, EventArgs e)
+        {
+            effectAni = new Animation();
+            effectAni.setDuration(100);
+            effectAni.setInverval(5);
+            effectAni.run(this, Animation.Effect.FADEIN);
+
+            motionAni = new Animation();
+            motionAni.setDuration(100);
+            motionAni.setInverval(1);
+            motionAni.run(this, Animation.Effect.FLYTO);
+        }
     }
 }

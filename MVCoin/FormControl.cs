@@ -8,30 +8,38 @@ using System.Windows.Forms;
 
 namespace MVCoin
 {
-    class FormControl : Form
+    class FormControl
     {
         public Form myForm = new Form();
         static int width, height;
 
-        public FormControl(int widthInput, int heightInput)
+        public FormControl()
+        {
+
+        }
+
+        public void setSize(int widthInput, int heightInput)
         {
             width = widthInput;
             height = heightInput;
+            myForm.Size = new Size(width, height);
         }
 
-        public void setWidth(int widthInput)
+        public void setCenter(int x, int y)
         {
-            width = widthInput;
+            myForm.Location = new Point(x - myForm.Width / 2, y - myForm.Height / 2);
         }
 
-        public void setHeighth(int heightInput)
+        public Point getCenter()
         {
-            height = heightInput;
+            return new Point(myForm.Location.X + myForm.Width / 2, myForm.Location.Y + myForm.Height / 2);
         }
 
         public void ChangeFormSize(int percentage)
         {
             myForm.Size = new Size(width * percentage / 100, height * percentage / 100);
         }
+
+
     }
 }
