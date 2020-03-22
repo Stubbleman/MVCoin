@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generator: Adobe Illustrator 16.0.2, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   version="1.1"
+   x="0px"
+   y="0px"
+   width="3648px"
+   height="3928px"
+   viewBox="0 0 3648 3928"
+   style="enable-background:new 0 0 3648 3928;"
+   xml:space="preserve"
+   id="svg28"
+   sodipodi:docname="logoOriginal.svg"
+   inkscape:export-filename="C:\Code\MVCoin\MVCoin\icon\logoOriginal.png"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96"
+   inkscape:version="0.92.4 (5da689c313, 2019-01-14)"><metadata
+   id="metadata34"><rdf:RDF><cc:Work
+       rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
+         rdf:resource="http://purl.org/dc/dcmitype/StillImage" /></cc:Work></rdf:RDF></metadata><defs
+   id="defs32" /><sodipodi:namedview
+   pagecolor="#ffffff"
+   bordercolor="#666666"
+   borderopacity="1"
+   objecttolerance="10"
+   gridtolerance="10"
+   guidetolerance="10"
+   inkscape:pageopacity="0"
+   inkscape:pageshadow="2"
+   inkscape:window-width="1920"
+   inkscape:window-height="1048"
+   id="namedview30"
+   showgrid="false"
+   inkscape:zoom="0.060081466"
+   inkscape:cx="1824"
+   inkscape:cy="1964"
+   inkscape:window-x="-10"
+   inkscape:window-y="-10"
+   inkscape:window-maximized="1"
+   inkscape:current-layer="svg28" />
+
+
+
+
+<g
+   id="g859"
+   inkscape:export-xdpi="1.9717587"
+   inkscape:export-ydpi="1.9717587"><g
+     id="六邊形">
+	<polygon
+   id="polygon2"
+   points="668,1435.807 1828.999,736.702    2993,1399.733 2993,2711 1830.5,3403.93 668,2752.864  "
+   style="fill:#F61A25;stroke:#F61A25;stroke-width:12;stroke-miterlimit:10;" />
+</g><g
+     id="口">
+	<path
+   d="M891.333,1493.334l845.492,448.459c0,0,108.011,66.007,231.023,0   c123.013-66.006,795.079-465.046,795.079-465.046s150.017-66.007,12.002-138.014c-138.015-72.007-825.083-468.046-825.083-468.046   s-120.013-87.008-252.025,0c-144.18,95.027-720.496,450.144-800.488,498.647C848.215,1399.117,837.26,1459.258,891.333,1493.334z"
+   style="fill:#FFFFFF;"
+   id="白_1_" />
+</g><g
+     id="M">
+	<path
+   id="path7"
+   d="M737.637,2719.066L964,2847.881V2110c0,0,8.75-99.204,101.76-51.199S1158,2211,1158,2211   l-9.833,737.672L1384,3081.807v-767.903c0,0,29.794-69.083,86.8-39.08s87.008,105.011,90.009,138.014S1564,3180,1564,3180   l220.585,124l5.999-1061.91c0,0,7.249-132.276-133.765-210.284s-783.078-414.042-783.078-414.042s-161.165-116.671-152.603,120.353   S737.637,2719.066,737.637,2719.066z"
+   style="fill:#FFFFFF;" />
+</g><g
+     id="V">
+	<path
+   d="M1879,3304V2237.592c0,0,9.662-139.594,121.573-206.989   c121.863-73.388,106.271-59.474,106.271-59.474L2108,2932.5c0,0,149.55-100.207,357.55-485.975   c185.181-343.446,263.042-716.459,282.448-847.992l194.528-104.903c0,0-11.543,604.794-272.986,1061.944   C2418.977,2993.698,2186.564,3113.543,1879,3304z"
+   style="fill:#FFFFFF;"
+   id="白" />
+</g><g
+     id="plane2">
+	<g
+   id="g25">
+		<clipPath
+   id="遮罩_1_">
+			<path
+   d="M890.333,1494.334l845.492,448.459c0,0,108.011,66.007,231.023,0     c123.013-66.006,795.079-465.046,795.079-465.046s150.017-66.007,12.002-138.014c-26.854-14.011,314.917-680.317,255.593-713.56     c-245.56-137.602-892.655-462.563-892.655-462.563s-735.074-87.008-867.087,0c-124.017,81.737-388.462,29.06-561.056,135.014     c-28.063,17.227,198.796,1064.927,187.609,1071.71C847.215,1400.117,836.26,1460.258,890.333,1494.334z"
+   id="遮罩" />
+		</clipPath>
+		<g
+   clip-path="url(#遮罩_1_)"
+   id="本體"
+   style="clip-path:url(#遮罩_1_);">
+			<polygon
+   id="polygon14"
+   points="918,503 2173.84,1605.589 2355.913,1338.639    "
+   style="fill:#FFFFFF;" />
+			<!--polygon style="fill:#FFFFFF;" points="918,503 2173.84,1605.589 2355.913,1338.639 			"/>-->
+			<polygon
+   id="polygon16"
+   points="2262.582,1480.228 2274,1663 2212,1611    "
+   style="fill:#F7130D;" />
+			<g
+   id="g22">
+				<polygon
+   id="polygon18"
+   points="918,503 1995.422,2137 2217.914,1474.314 918,503 2274,1402.573 2850,953     "
+   style="fill:#FFFFFF;" />
+				<path
+   id="path20"
+   d="M918,503l1077.422,1634l0,0l0,0l185.726-675.03l13.552,43.412L917.636,503.487l0,0l0.7-0.994      l1380.372,862.835l-52.208,2.011l603.126-414.819L2850,953L918,503z M918,503l1946.787,386.514l50.193,9.965l-64.606,54      l-560.947,468.857l-13.936,11.648l-15.352-10.52L917.664,503.507l0.7-0.994l0,0l1314.718,951.501l15.352,11.111l-6.497,17.254      L1995.422,2137l85.043,28.553l-159.936,20.83L918,503z"
+   style="fill:#FA0F0C;" />
+			</g>
+			
+		</g>
+	</g>
+</g></g>
+</svg>
