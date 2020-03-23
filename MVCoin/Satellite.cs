@@ -13,8 +13,6 @@ namespace MVCoin
     public partial class Satellite : Form
     {
         private Animation effectAni;
-        private Animation motionAni;
-        private FormControl formController;
 
         public Satellite()
         {
@@ -27,11 +25,6 @@ namespace MVCoin
             this.TransparencyKey = this.BackColor;
             this.FormBorderStyle = FormBorderStyle.None;
             this.Opacity = 0;
-
-            formController = new FormControl();
-            formController.myForm = this;
-            formController.setSize(100, 115);
-            formController.ChangeFormSize(50);
         }
 
         public void setBackgroundeImg(Image bgImg)
@@ -40,17 +33,20 @@ namespace MVCoin
             this.BackgroundImageLayout = ImageLayout.Stretch;
         }
 
-        private void Satellite_Shown(object sender, EventArgs e)
+        public void appear()
         {
             effectAni = new Animation();
             effectAni.setDuration(100);
             effectAni.setInverval(5);
             effectAni.run(this, Animation.Effect.FADEIN);
+        }
 
-            motionAni = new Animation();
-            motionAni.setDuration(100);
-            motionAni.setInverval(1);
-            motionAni.run(this, Animation.Effect.FLYTO);
+        public void disappear()
+        {
+            effectAni = new Animation();
+            effectAni.setDuration(100);
+            effectAni.setInverval(2);
+            effectAni.run(this, Animation.Effect.FADEOUT);
         }
     }
 }

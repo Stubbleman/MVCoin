@@ -25,9 +25,21 @@ namespace MVCoin
             myForm.Size = new Size(width, height);
         }
 
-        public void setCenter(int x, int y)
+        public void setSize(int widthInput, int heightInput, Form myForm)
         {
-            myForm.Location = new Point(x - myForm.Width / 2, y - myForm.Height / 2);
+            width = widthInput;
+            height = heightInput;
+            myForm.Size = new Size(width, height);
+        }
+
+        public void setCenter(Point location)
+        {
+            myForm.Location = new Point(location.X - myForm.Width / 2, location.Y - myForm.Height / 2);
+        }
+
+        public void setCenter(Point location, Form myForm)
+        {
+            myForm.Location = new Point(location.X - myForm.Width / 2, location.Y - myForm.Height / 2);
         }
 
         public Point getCenter()
@@ -35,7 +47,17 @@ namespace MVCoin
             return new Point(myForm.Location.X + myForm.Width / 2, myForm.Location.Y + myForm.Height / 2);
         }
 
+        public Point getCenter(Form myForm)
+        {
+            return new Point(myForm.Location.X + myForm.Width / 2, myForm.Location.Y + myForm.Height / 2);
+        }
+
         public void ChangeFormSize(int percentage)
+        {
+            myForm.Size = new Size(width * percentage / 100, height * percentage / 100);
+        }
+
+        public void ChangeFormSize(int percentage, Form myForm)
         {
             myForm.Size = new Size(width * percentage / 100, height * percentage / 100);
         }

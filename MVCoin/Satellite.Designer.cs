@@ -36,10 +36,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(280, 248);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Location = new System.Drawing.Point(10, 10);
             this.Name = "Satellite";
             this.Text = "Satellite";
             this.Load += new System.EventHandler(this.Satellite_Load);
-            this.Shown += new System.EventHandler(this.Satellite_Shown);
             this.ResumeLayout(false);
 
         }

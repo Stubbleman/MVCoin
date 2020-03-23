@@ -17,7 +17,9 @@ namespace MVCoin
         private float duration = 100; // Default 1000
         private float speed = 1; // Default 1
         private Form formTarget;
+        private List<Satellite> satelliteTargetList;
         private EventHandler eventHandler;
+        private List<EventHandler> eventHandlerList;
         private bool isDone = false;
         private Point dst = // Default screen center
             new Point(Screen.PrimaryScreen.Bounds.Width / 2, Screen.PrimaryScreen.Bounds.Height / 2); 
@@ -63,22 +65,65 @@ namespace MVCoin
             
         }
 
+        public void run(List<Satellite> satellireInputList, Effect effect) // Duration in millisecond
+        {
+            eventHandlerList = new List<EventHandler>();
+            satelliteTargetList = satellireInputList;
+
+            switch (effect)
+            {
+                case Effect.FADEIN:
+                    timerStartMulti(fadeIn);
+                    break;
+
+                case Effect.FADEOUT:
+                    timerStartMulti(fadeOut);
+                    break;
+
+                case Effect.WATERDOWN:
+                    timerStartMulti(waterDown);
+                    break;
+
+                case Effect.FLYTO:
+                    timerStartMulti(flyTo);
+                    break;
+            }
+
+        }
+
         private void timerStart(EventHandler eventInput)
         {
-            actionTimer.Tick -= eventHandler;
-            eventHandler = new EventHandler(eventInput);
-            actionTimer.Tick += eventHandler;
+            actionTimer.Tick -= eventHandler; // Clear previous event
+            eventHandler = new EventHandler(eventInput); // Create new event
+            actionTimer.Tick += eventHandler; // Add new event
+            actionTimer.Start();
+        }
+
+        private void timerStartMulti(EventHandler eventInput)
+        {
+            // Clear previous events
+            if(eventHandlerList.Count > 0)
+            {
+                for (int i = 0; i < satelliteTargetList.Count; i++)
+                {
+                    actionTimer.Tick -= eventHandlerList[i];
+                }
+            }
+
+            // Add new events
+            for (int i = 0; i < satelliteTargetList.Count; i++)
+            {
+                formTarget = satelliteTargetList[i];
+                eventHandlerList.Add(new EventHandler(eventInput));
+                actionTimer.Tick += eventHandlerList[i];
+            }
+
             actionTimer.Start();
         }
 
         private void timerStop()
         {
             actionTimer.Stop();
-        }
-
-        private float rss(float x, float y) // root-square-sum
-        {
-            return (float)Math.Sqrt(Math.Pow(x - y, 2) + Math.Pow(x - y, 2));
         }
         
         private void fadeIn(object sender, EventArgs e)
@@ -106,9 +151,10 @@ namespace MVCoin
         }
 
         private void flyTo(object sender, EventArgs e) // dst: destination
-        {            
-            PointF loc = formTarget.Location; // current location
-            float distance = rss(dst.X - loc.X, dst.Y - loc.Y);
+        {       
+            FormControl formController = new FormControl();     
+            PointF loc = formController.getCenter(formTarget); // current center location
+            float distance = MathF.RSS(dst.X - loc.X, dst.Y - loc.Y);
             float dirX = (dst.X - loc.X) / distance;
             float dirY = (dst.Y - loc.Y) / distance;
             if (!isDone)
@@ -123,12 +169,22 @@ namespace MVCoin
             {
                 actionTimer.Stop();
             }
-            else if(distance < rss(step.X,step.Y))
+            else if (distance < MathF.RSS(step.X, step.Y))
             {
-                formTarget.Location = dst;
+                formController.setCenter(dst, formTarget);
+                //formTarget.Location = dst;
             }
             else
-                formTarget.Location = new Point((int)Math.Ceiling(loc.X + step.X), (int)Math.Ceiling(loc.Y + step.Y));
+            {
+                formController.setCenter(new Point((int)Math.Ceiling(loc.X + step.X), (int)Math.Ceiling(loc.Y + step.Y)), formTarget);
+                //formTarget.Location = new Point((int)Math.Ceiling(loc.X + step.X), (int)Math.Ceiling(loc.Y + step.Y));
+            }
+
+        }
+
+        private void follow()
+        {
+
         }
 
 
