@@ -1,5 +1,5 @@
-# MVCoin
-20200322
+# MVCoin 0.4.0
+20200325
 A lovely desktop widget can help you do many things~~
 
 ## Feature
@@ -13,3 +13,4 @@ A lovely desktop widget can help you do many things~~
 ## Future Works
 - Some memory occupied issues
 - develop ```follow``` effect
+- Sync satellites' animation

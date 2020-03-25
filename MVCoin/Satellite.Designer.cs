@@ -38,8 +38,14 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Location = new System.Drawing.Point(10, 10);
             this.Name = "Satellite";
+            this.ShowIcon = false;
+            this.ShowInTaskbar = false;
             this.Text = "Satellite";
+            this.TopMost = true;
             this.Load += new System.EventHandler(this.Satellite_Load);
+            this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Satellite_MouseClick);
+            this.MouseEnter += new System.EventHandler(this.Satellite_MouseEnter);
+            this.MouseLeave += new System.EventHandler(this.Satellite_MouseLeave);
             this.ResumeLayout(false);
 
         }

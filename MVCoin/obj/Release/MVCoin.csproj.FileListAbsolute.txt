@@ -1,0 +1,10 @@
+C:\Code\MVCoin\MVCoin\bin\Release\MVCoin.exe.config
+C:\Code\MVCoin\MVCoin\bin\Release\MVCoin.exe
+C:\Code\MVCoin\MVCoin\bin\Release\MVCoin.pdb
+C:\Code\MVCoin\MVCoin\obj\Release\MVCoin.csprojResolveAssemblyReference.cache
+C:\Code\MVCoin\MVCoin\obj\Release\MVCoin.Form1.resources
+C:\Code\MVCoin\MVCoin\obj\Release\MVCoin.Properties.Resources.resources
+C:\Code\MVCoin\MVCoin\obj\Release\MVCoin.Satellite.resources
+C:\Code\MVCoin\MVCoin\obj\Release\MVCoin.csproj.GenerateResource.Cache
+C:\Code\MVCoin\MVCoin\obj\Release\MVCoin.exe
+C:\Code\MVCoin\MVCoin\obj\Release\MVCoin.pdb

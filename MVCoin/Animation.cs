@@ -16,6 +16,7 @@ namespace MVCoin
         private float interval = 5; // Default 10
         private float duration = 100; // Default 1000
         private float speed = 1; // Default 1
+        private double opacity = 0.25;
         private Form formTarget;
         private List<Satellite> satelliteTargetList;
         private EventHandler eventHandler;
@@ -38,6 +39,16 @@ namespace MVCoin
         public void setFlyToDst(Point dstInput)
         {
             dst = dstInput;
+        }
+
+        public void setOpacity(double opacityInput)
+        {
+            opacity = opacityInput;
+        }
+
+        public Point getFlyToDst()
+        {
+            return dst;
         }
 
         public void run(Form formInput, Effect effect) // Duration in millisecond
@@ -144,7 +155,7 @@ namespace MVCoin
 
         private void waterDown(object sender, EventArgs e)
         {
-            if (formTarget.Opacity <= 0.2)
+            if (formTarget.Opacity <= opacity)
                 timerStop();
             else
                 formTarget.Opacity -= interval / duration;
@@ -182,10 +193,7 @@ namespace MVCoin
 
         }
 
-        private void follow()
-        {
 
-        }
 
 
     }

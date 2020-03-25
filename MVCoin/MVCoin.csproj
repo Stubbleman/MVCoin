@@ -54,7 +54,6 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="FormControl.cs" />
-    <Compile Include="geometryProperty.cs" />
     <Compile Include="MathF.cs" />
     <Compile Include="PerPixelAlphaForm.cs" />
     <Compile Include="Program.cs" />
@@ -65,9 +64,11 @@
     <Compile Include="Satellite.Designer.cs">
       <DependentUpon>Satellite.cs</DependentUpon>
     </Compile>
+    <Compile Include="SatellitesControl.cs" />
     <Compile Include="StickiesControl.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="TaskLauncher.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>

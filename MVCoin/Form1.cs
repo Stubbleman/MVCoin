@@ -14,13 +14,11 @@ namespace MVCoin
     {
         private Point mouse_offset;
         private Animation animater;
-        private StickiesControl stickiesController = new StickiesControl();
-        private FormControl formController;
-        private bool mouseEnter = false;
+        private StickiesControl stiController = new StickiesControl();
+        private FormControl formController = new FormControl();
+        private SatellitesControl satellitesController;
+        private bool mouseEntered = false;
         private bool expand = false;
-        List<Satellite> satelliteList = new List<Satellite>();
-        List<Animation> satelliteAniList = new List<Animation>();
-        int satelliteNumber = 9;
 
         public Form1()
         {
@@ -34,14 +32,9 @@ namespace MVCoin
             this.FormBorderStyle = FormBorderStyle.None;
             this.Opacity = 0;
 
-            formController = new FormControl();
             formController.myForm = this;
             formController.setSize(100, 115);
-            //formController.setWidth(100);
-            //formController.setHeighth(115);
             formController.ChangeFormSize(100);
-            //ChangeFormSize(100); // Change size by given percentage
-            //this.Location = new Point(Cursor.Position.X - this.Width / 2, Cursor.Position.Y - this.Height / 2);
             formController.setCenter(Cursor.Position);
 
             animater = new Animation();
@@ -49,7 +42,9 @@ namespace MVCoin
             animater.setInverval(5);
             animater.run(this, Animation.Effect.FADEIN);
 
-            createSatellites();
+            satellitesController = new SatellitesControl(this);
+            satellitesController.actionCmd(SatellitesControl.Cmd.CREATE);
+            //createSatellites();
             
         }
 
@@ -64,7 +59,10 @@ namespace MVCoin
             {
                 Point mousePos = Control.MousePosition;
                 mousePos.Offset(mouse_offset.X, mouse_offset.Y);
-                Location = mousePos;
+                this.Location = mousePos;
+
+                if (expand)
+                    satellitesController.actionCmd(SatellitesControl.Cmd.MOVE);
             }
         }
 
@@ -144,31 +142,61 @@ namespace MVCoin
         {
             formController.ChangeFormSize(25);
         }
-        
+
         /***Change form size***/
+
+        /***Change opacity***/
+
+        private void toolStripMenuItemOpacity100_Click(object sender, EventArgs e)
+        {
+            animater.setOpacity(1);
+        }
+
+        private void toolStripMenuItemOpacity75_Click(object sender, EventArgs e)
+        {
+            animater.setOpacity(0.75);
+        }
+
+        private void toolStripMenuItemOpacity50_Click(object sender, EventArgs e)
+        {
+            animater.setOpacity(0.5);
+        }
+
+        private void toolStripMenuItemOpacity25_Click(object sender, EventArgs e)
+        {
+            animater.setOpacity(0.25);
+        }
+
+        /***Change opacity***/
 
         private void testToolStripMenuItem_Click(object sender, EventArgs e)
         {
             //animater.setFlyToDst(new Point(Screen.PrimaryScreen.Bounds.Width / 2, Screen.PrimaryScreen.Bounds.Height / 2));
-            animater.run(this, Animation.Effect.FLYTO);
+            //animater.run(this, Animation.Effect.FLYTO);
+            stickyCommand("do ping");
         }
 
         private void Form1_MouseLeave(object sender, EventArgs e)
         {
-            if(!mouseEnter)
+            if(mouseEntered)
             {
                 animater.run(this, Animation.Effect.WATERDOWN);
-                mouseEnter = !mouseEnter;
+                mouseEntered = false;
+
+                if(expand)
+                    satellitesController.actionCmd(SatellitesControl.Cmd.WATERDOWN);
             }
         }
 
         private void Form1_MouseEnter(object sender, EventArgs e)
         {
-            if (mouseEnter)
+            if (!mouseEntered)
             {
                 animater.run(this, Animation.Effect.FADEIN);
-                mouseEnter = !mouseEnter;
-                //MessageBox.Show("MouseEnter");
+                mouseEntered = true;
+
+                if(expand)
+                    satellitesController.actionCmd(SatellitesControl.Cmd.FADEIN);
             }
                 
         }
@@ -177,61 +205,23 @@ namespace MVCoin
         {
             if(!expand)
             {
-                expandSatellite();
+                satellitesController.actionCmd(SatellitesControl.Cmd.EXPAND);
                 expand = true;
             }
             else if(expand)
             {
-                collapseSatellite();
+                satellitesController.actionCmd(SatellitesControl.Cmd.COLLAPSE);
                 expand = false;
             }            
         }
 
         private void stickyCommand(string str)
         {     
-            string reply = stickiesController.SendToStickies(str);
+            string reply = stiController.SendToStickies(str);
             if (reply.Length == 0)
                 MessageBox.Show("ERROR");
             //else
                 //MessageBox.Show(reply);
-        }
-
-        private void createSatellites()
-        {
-            for (int i = 0; i < satelliteNumber; i++)
-            {
-                satelliteList.Add(new Satellite());
-                satelliteList[i].setBackgroundeImg(Image.FromFile("../../Icon/satellite1.png"));
-                satelliteList[i].Show();
-                formController.setSize(this.Size.Width, this.Size.Height, satelliteList[i]);
-                formController.ChangeFormSize(50, satelliteList[i]);
-
-
-                satelliteAniList.Add(new Animation());
-                satelliteAniList[i].setDuration(10);
-                satelliteAniList[i].setInverval(1);                
-            }
-        }
-
-        private void expandSatellite()
-        {            
-            for (int i = 0; i < satelliteNumber; i++)
-            {
-                formController.setCenter(formController.getCenter(), satelliteList[i]);
-                satelliteAniList[i].setFlyToDst(orbitCalculate(satelliteNumber, i));
-                satelliteAniList[i].run(satelliteList[i], Animation.Effect.FLYTO);
-                satelliteList[i].appear();
-            }
-        }
-
-        private void collapseSatellite()
-        {
-            for (int i = 0; i < satelliteNumber; i++)
-            {
-                satelliteAniList[i].setFlyToDst(formController.getCenter(this));
-                satelliteAniList[i].run(satelliteList[i], Animation.Effect.FLYTO);
-                satelliteList[i].disappear();               
-            }
         }
 
         private Point orbitCalculate(int totalNumber, int sequenceNumber)
@@ -262,8 +252,13 @@ namespace MVCoin
 
             return satellitePoint;
         }
-        
 
-        
+        // "About" button
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Make Maker Village great again~~~LOL", "About",MessageBoxButtons.OK);
+        }
+
+
     }
 }
