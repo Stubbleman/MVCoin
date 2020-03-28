@@ -18,6 +18,7 @@ namespace MVCoin
         private Point offset; // Offset vector from center form
         private bool mouseEntered = false;
         private taskName task;
+        private int serialNum = 0;
 
         public Satellite()
         {
@@ -41,6 +42,16 @@ namespace MVCoin
         public void setOffset(Point offsetInput)
         {
             offset = offsetInput;
+        }
+
+        public void setSerailNum(int numberInput)
+        {
+            serialNum = numberInput;
+        }
+
+        public void setTask(taskName taskInput)
+        {
+            task = taskInput;
         }
 
         public Point getOffset()
@@ -82,7 +93,7 @@ namespace MVCoin
 
         private void Satellite_MouseClick(object sender, MouseEventArgs e)
         {
-            taskLauncher.launch(taskName.STICKIES); 
+            taskLauncher.launch(task); 
         }
 
         /*

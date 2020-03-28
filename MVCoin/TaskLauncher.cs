@@ -7,7 +7,7 @@ using System.Windows.Forms;
 
 namespace MVCoin
 {
-    public enum taskName {STICKIES };
+    public enum taskName {NONE, STICKIES };
 
     class TaskLauncher
     {
@@ -17,6 +17,8 @@ namespace MVCoin
         {
             switch(task)
             {
+                case taskName.NONE:
+                    break;
                 case taskName.STICKIES:
                     string reply = stiController.SendToStickies("do new sticky HaHaHa");
                     break;

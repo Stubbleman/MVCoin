@@ -5,6 +5,7 @@ using System.Text;
 using System.Drawing;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using tmr = System.Timers;
 
 namespace MVCoin
 {
@@ -12,15 +13,16 @@ namespace MVCoin
     {
         public enum Effect { FADEIN, FADEOUT, WATERDOWN, FLYTO};
 
-        private Timer actionTimer = new Timer();
+        private tmr::Timer actionTimer = new tmr::Timer();
         private float interval = 5; // Default 10
         private float duration = 100; // Default 1000
         private float speed = 1; // Default 1
         private double opacity = 0.25;
         private Form formTarget;
-        private List<Satellite> satelliteTargetList;
-        private EventHandler eventHandler;
-        private List<EventHandler> eventHandlerList;
+        //private List<Satellite> satelliteTargetList;
+        //private EventHandler eventHandler;
+        private tmr::ElapsedEventHandler elapseEventHandler;
+        //private List<EventHandler> eventHandlerList;
         private bool isDone = false;
         private Point dst = // Default screen center
             new Point(Screen.PrimaryScreen.Bounds.Width / 2, Screen.PrimaryScreen.Bounds.Height / 2); 
@@ -28,7 +30,7 @@ namespace MVCoin
         public void setInverval(int intervalInput)
         {
             interval = intervalInput;
-            actionTimer.Interval = (int)interval;
+            actionTimer.Interval = interval;
         }
 
         public void setDuration(int durationInput)
@@ -75,7 +77,7 @@ namespace MVCoin
             }                               
             
         }
-
+        /*
         public void run(List<Satellite> satellireInputList, Effect effect) // Duration in millisecond
         {
             eventHandlerList = new List<EventHandler>();
@@ -101,15 +103,15 @@ namespace MVCoin
             }
 
         }
-
-        private void timerStart(EventHandler eventInput)
+        */
+        private void timerStart(tmr.ElapsedEventHandler eventInput)
         {
-            actionTimer.Tick -= eventHandler; // Clear previous event
-            eventHandler = new EventHandler(eventInput); // Create new event
-            actionTimer.Tick += eventHandler; // Add new event
+            actionTimer.Elapsed -= elapseEventHandler; // Clear previous event
+            elapseEventHandler = new tmr::ElapsedEventHandler(eventInput); // Create new event
+            actionTimer.Elapsed += elapseEventHandler; // Add new event
             actionTimer.Start();
         }
-
+        /*
         private void timerStartMulti(EventHandler eventInput)
         {
             // Clear previous events
@@ -131,70 +133,95 @@ namespace MVCoin
 
             actionTimer.Start();
         }
-
+        */
         private void timerStop()
         {
             actionTimer.Stop();
         }
         
-        private void fadeIn(object sender, EventArgs e)
+        private void fadeIn(object sender, tmr::ElapsedEventArgs e)
         {
-            if (formTarget.Opacity >= 1)
-                timerStop();                
-            else
-                formTarget.Opacity += interval / duration;
+            formTarget.InvokeIfRequired(() => 
+            {
+                if (formTarget.Opacity >= 1)
+                    timerStop();
+                else
+                    formTarget.Opacity += interval / duration;
+            });
         }
 
-        private void fadeOut(object sender, EventArgs e)
+        private void fadeOut(object sender, tmr::ElapsedEventArgs e)
         {
-            if (formTarget.Opacity <= 0)
-                timerStop();
-            else
-                formTarget.Opacity -= interval / duration;
+            formTarget.InvokeIfRequired(() =>
+            {
+                if (formTarget.Opacity <= 0)
+                    timerStop();
+                else
+                    formTarget.Opacity -= interval / duration;
+            });
+
         }
 
-        private void waterDown(object sender, EventArgs e)
+        private void waterDown(object sender, tmr::ElapsedEventArgs e)
         {
-            if (formTarget.Opacity <= opacity)
-                timerStop();
-            else
-                formTarget.Opacity -= interval / duration;
+            formTarget.InvokeIfRequired(() =>
+            {
+                if (formTarget.Opacity <= opacity)
+                    timerStop();
+                else
+                    formTarget.Opacity -= interval / duration;
+            });
         }
 
-        private void flyTo(object sender, EventArgs e) // dst: destination
-        {       
-            FormControl formController = new FormControl();     
-            PointF loc = formController.getCenter(formTarget); // current center location
-            float distance = MathF.RSS(dst.X - loc.X, dst.Y - loc.Y);
-            float dirX = (dst.X - loc.X) / distance;
-            float dirY = (dst.Y - loc.Y) / distance;
-            if (!isDone)
+        private void flyTo(object sender, tmr::ElapsedEventArgs e) // dst: destination
+        {
+            formTarget.InvokeIfRequired(() =>
             {
-                speed = distance / duration;
-                isDone = true;
-            }
+                FormControl formController = new FormControl();
+                PointF loc = formController.getCenter(formTarget); // current center location
+                float distance = MathF.RSS(dst.X - loc.X, dst.Y - loc.Y);
+                float dirX = (dst.X - loc.X) / distance;
+                float dirY = (dst.Y - loc.Y) / distance;
+                if (!isDone)
+                {
+                    speed = distance / duration;
+                    isDone = true;
+                }
 
-            PointF step = new PointF(dirX * speed, dirY * speed);
+                PointF step = new PointF(dirX * speed, dirY * speed);
 
-            if (distance <= 0)
-            {
-                actionTimer.Stop();
-            }
-            else if (distance < MathF.RSS(step.X, step.Y))
-            {
-                formController.setCenter(dst, formTarget);
-                //formTarget.Location = dst;
-            }
-            else
-            {
-                formController.setCenter(new Point((int)Math.Ceiling(loc.X + step.X), (int)Math.Ceiling(loc.Y + step.Y)), formTarget);
-                //formTarget.Location = new Point((int)Math.Ceiling(loc.X + step.X), (int)Math.Ceiling(loc.Y + step.Y));
-            }
-
+                if (distance <= 0)
+                {
+                    actionTimer.Stop();
+                }
+                else if (distance < MathF.RSS(step.X, step.Y))
+                {
+                    formController.setCenter(dst, formTarget);
+                    //formTarget.Location = dst;
+                }
+                else
+                {
+                    formController.setCenter(new Point((int)Math.Ceiling(loc.X + step.X), (int)Math.Ceiling(loc.Y + step.Y)), formTarget);
+                    //formTarget.Location = new Point((int)Math.Ceiling(loc.X + step.X), (int)Math.Ceiling(loc.Y + step.Y));
+                }
+            });
         }
+    }
+}
 
-
-
-
+public static class Extension
+{
+    //非同步委派更新UI
+    public static void InvokeIfRequired(
+        this Control control, MethodInvoker action)
+    {
+        if (control.InvokeRequired)//在非當前執行緒內 使用委派
+        {
+            control.Invoke(action);
+        }
+        else
+        {
+            action();
+        }
     }
 }

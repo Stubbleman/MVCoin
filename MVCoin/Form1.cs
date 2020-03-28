@@ -44,8 +44,6 @@ namespace MVCoin
 
             satellitesController = new SatellitesControl(this);
             satellitesController.actionCmd(SatellitesControl.Cmd.CREATE);
-            //createSatellites();
-            
         }
 
         private void Form1_MouseDown(object sender, MouseEventArgs e)

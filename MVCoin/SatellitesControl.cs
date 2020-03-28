@@ -18,13 +18,14 @@ namespace MVCoin
         List<Animation> satelliteAniList = new List<Animation>();
         List<Point> satelliteOffsetList = new List<Point>();
         int satelliteNumber = 6;
-        int i = 0;
+        int i = 0; // Counter
 
         public SatellitesControl(Form mainFormInput)
         {
             mainForm = mainFormInput;
         }
 
+        // Call all the function
         public void actionCmd(Cmd cmd)
         {
             for (i = 0; i < satelliteNumber; i++)
@@ -62,6 +63,7 @@ namespace MVCoin
         {
             satelliteList.Add(new Satellite());
             satelliteList[i].setBackgroundeImg(Image.FromFile("../../Icon/satellite2.png"));
+            satelliteList[i].setSerailNum(i);
             satelliteList[i].Show();
             formController.setSize(mainForm.Size.Width, mainForm.Size.Height, satelliteList[i]);
             formController.ChangeFormSize(50, satelliteList[i]);
