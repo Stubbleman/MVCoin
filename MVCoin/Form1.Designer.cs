@@ -60,7 +60,7 @@
             this.aboutToolStripMenuItem,
             this.exitToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(142, 134);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(119, 114);
             // 
             // sizeToolStripMenuItem
             // 
@@ -72,48 +72,48 @@
             this.toolStripMenuItemSize50,
             this.toolStripMenuItemSize25});
             this.sizeToolStripMenuItem.Name = "sizeToolStripMenuItem";
-            this.sizeToolStripMenuItem.Size = new System.Drawing.Size(141, 26);
+            this.sizeToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
             this.sizeToolStripMenuItem.Text = "Size";
             // 
             // toolStripMenuItemSize300
             // 
             this.toolStripMenuItemSize300.Name = "toolStripMenuItemSize300";
-            this.toolStripMenuItemSize300.Size = new System.Drawing.Size(198, 28);
+            this.toolStripMenuItemSize300.Size = new System.Drawing.Size(106, 22);
             this.toolStripMenuItemSize300.Text = "300%";
             this.toolStripMenuItemSize300.Click += new System.EventHandler(this.toolStripMenuItem300_Click);
             // 
             // toolStripMenuItemSize200
             // 
             this.toolStripMenuItemSize200.Name = "toolStripMenuItemSize200";
-            this.toolStripMenuItemSize200.Size = new System.Drawing.Size(198, 28);
+            this.toolStripMenuItemSize200.Size = new System.Drawing.Size(106, 22);
             this.toolStripMenuItemSize200.Text = "200%";
             this.toolStripMenuItemSize200.Click += new System.EventHandler(this.toolStripMenuItem200_Click);
             // 
             // toolStripMenuItemSize100
             // 
             this.toolStripMenuItemSize100.Name = "toolStripMenuItemSize100";
-            this.toolStripMenuItemSize100.Size = new System.Drawing.Size(198, 28);
+            this.toolStripMenuItemSize100.Size = new System.Drawing.Size(106, 22);
             this.toolStripMenuItemSize100.Text = "100%";
             this.toolStripMenuItemSize100.Click += new System.EventHandler(this.toolStripMenuItem100_Click);
             // 
             // toolStripMenuItemSize75
             // 
             this.toolStripMenuItemSize75.Name = "toolStripMenuItemSize75";
-            this.toolStripMenuItemSize75.Size = new System.Drawing.Size(198, 28);
+            this.toolStripMenuItemSize75.Size = new System.Drawing.Size(106, 22);
             this.toolStripMenuItemSize75.Text = "75%";
             this.toolStripMenuItemSize75.Click += new System.EventHandler(this.toolStripMenuItem75_Click);
             // 
             // toolStripMenuItemSize50
             // 
             this.toolStripMenuItemSize50.Name = "toolStripMenuItemSize50";
-            this.toolStripMenuItemSize50.Size = new System.Drawing.Size(198, 28);
+            this.toolStripMenuItemSize50.Size = new System.Drawing.Size(106, 22);
             this.toolStripMenuItemSize50.Text = "50%";
             this.toolStripMenuItemSize50.Click += new System.EventHandler(this.toolStripMenuItem50_Click);
             // 
             // toolStripMenuItemSize25
             // 
             this.toolStripMenuItemSize25.Name = "toolStripMenuItemSize25";
-            this.toolStripMenuItemSize25.Size = new System.Drawing.Size(198, 28);
+            this.toolStripMenuItemSize25.Size = new System.Drawing.Size(106, 22);
             this.toolStripMenuItemSize25.Text = "25%";
             this.toolStripMenuItemSize25.Click += new System.EventHandler(this.toolStripMenuItem25_Click);
             // 
@@ -125,55 +125,55 @@
             this.toolStripMenuItemOpacity50,
             this.toolStripMenuItemOpacity25});
             this.opacityToolStripMenuItem.Name = "opacityToolStripMenuItem";
-            this.opacityToolStripMenuItem.Size = new System.Drawing.Size(141, 26);
+            this.opacityToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
             this.opacityToolStripMenuItem.Text = "Opacity";
             // 
             // toolStripMenuItemOpacity100
             // 
             this.toolStripMenuItemOpacity100.Name = "toolStripMenuItemOpacity100";
-            this.toolStripMenuItemOpacity100.Size = new System.Drawing.Size(198, 28);
+            this.toolStripMenuItemOpacity100.Size = new System.Drawing.Size(106, 22);
             this.toolStripMenuItemOpacity100.Text = "100%";
             this.toolStripMenuItemOpacity100.Click += new System.EventHandler(this.toolStripMenuItemOpacity100_Click);
             // 
             // toolStripMenuItemOpacity75
             // 
             this.toolStripMenuItemOpacity75.Name = "toolStripMenuItemOpacity75";
-            this.toolStripMenuItemOpacity75.Size = new System.Drawing.Size(198, 28);
+            this.toolStripMenuItemOpacity75.Size = new System.Drawing.Size(106, 22);
             this.toolStripMenuItemOpacity75.Text = "75%";
             this.toolStripMenuItemOpacity75.Click += new System.EventHandler(this.toolStripMenuItemOpacity75_Click);
             // 
             // toolStripMenuItemOpacity50
             // 
             this.toolStripMenuItemOpacity50.Name = "toolStripMenuItemOpacity50";
-            this.toolStripMenuItemOpacity50.Size = new System.Drawing.Size(198, 28);
+            this.toolStripMenuItemOpacity50.Size = new System.Drawing.Size(106, 22);
             this.toolStripMenuItemOpacity50.Text = "50%";
             this.toolStripMenuItemOpacity50.Click += new System.EventHandler(this.toolStripMenuItemOpacity50_Click);
             // 
             // toolStripMenuItemOpacity25
             // 
             this.toolStripMenuItemOpacity25.Name = "toolStripMenuItemOpacity25";
-            this.toolStripMenuItemOpacity25.Size = new System.Drawing.Size(198, 28);
+            this.toolStripMenuItemOpacity25.Size = new System.Drawing.Size(106, 22);
             this.toolStripMenuItemOpacity25.Text = "25%";
             this.toolStripMenuItemOpacity25.Click += new System.EventHandler(this.toolStripMenuItemOpacity25_Click);
             // 
             // testToolStripMenuItem
             // 
             this.testToolStripMenuItem.Name = "testToolStripMenuItem";
-            this.testToolStripMenuItem.Size = new System.Drawing.Size(141, 26);
+            this.testToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
             this.testToolStripMenuItem.Text = "Test";
             this.testToolStripMenuItem.Click += new System.EventHandler(this.testToolStripMenuItem_Click);
             // 
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(141, 26);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
             this.aboutToolStripMenuItem.Text = "About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(141, 26);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -187,16 +187,17 @@
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 17F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Gainsboro;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(200, 229);
+            this.ClientSize = new System.Drawing.Size(133, 162);
             this.ControlBox = false;
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "Form1";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;

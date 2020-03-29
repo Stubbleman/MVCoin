@@ -26,7 +26,7 @@ namespace MVCoin
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            this.BackColor = Color.Brown;
+            this.BackColor = Color.FromArgb(250, 0, 0);
             this.TransparencyKey = this.BackColor;
             this.FormBorderStyle = FormBorderStyle.None;
             this.Opacity = 0;

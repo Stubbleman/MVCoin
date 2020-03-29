@@ -1,16 +1,11 @@
+<img src="https://i.imgur.com/vQCOLFP.png" width=50% height=50% />
+
 # MVCoin 0.4.0
-20200325
+
 A lovely desktop widget can help you do many things~~
 
 ## Feature
-- Add satellite expand/collapse function
+- Expand/Collapse function icons by double-click MVCoin.
+- Add any function by yourself.
+- Support [Stickies](https://www.zhornsoftware.co.uk/stickies/index.html) API.
 
-## Bug Fixed
-- Satellites can appear at the right place by using ```show()``` at first.
-
-## Bug
-
-## Future Works
-- Some memory occupied issues
-- develop ```follow``` effect
-- Sync satellites' animation

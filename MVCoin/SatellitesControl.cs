@@ -19,7 +19,7 @@ namespace MVCoin
         List<Point> satelliteOffsetList = new List<Point>();
         List<taskName> taskList = new List<taskName>() {taskName.STICKIES };
         double scaleFactor = 1;
-        int satelliteNumber = 5;
+        int satelliteNumber = 6;
         int radiusOrbit = 100;
         int i = 0; // Counter
 
