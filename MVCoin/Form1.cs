@@ -14,8 +14,7 @@ namespace MVCoin
     {
         private Point mouse_offset;
         private Animation animater;
-        private StickiesControl stiController = new StickiesControl();
-        private FormControl formController = new FormControl();
+        private FormControl formController;
         private SatellitesControl satellitesController;
         private bool mouseEntered = false;
         private bool expand = false;
@@ -32,9 +31,10 @@ namespace MVCoin
             this.FormBorderStyle = FormBorderStyle.None;
             this.Opacity = 0;
 
+            formController = new FormControl(new Size(100, 115));
             formController.myForm = this;
             formController.setSize(100, 115);
-            formController.ChangeFormSize(100);
+            formController.scaleFormSize(1);
             formController.setCenter(Cursor.Position);
 
             animater = new Animation();
@@ -44,6 +44,7 @@ namespace MVCoin
 
             satellitesController = new SatellitesControl(this);
             satellitesController.actionCmd(SatellitesControl.Cmd.CREATE);
+            satellitesController.actionCmd(SatellitesControl.Cmd.PASSTASK);
         }
 
         private void Form1_MouseDown(object sender, MouseEventArgs e)
@@ -113,32 +114,44 @@ namespace MVCoin
 
         private void toolStripMenuItem300_Click(object sender, EventArgs e)
         {
-            formController.ChangeFormSize(300);
+            formController.scaleFormSize(3);
+            satellitesController.setScale(3);
+            satellitesController.actionCmd(SatellitesControl.Cmd.SCALE);
         }
 
         private void toolStripMenuItem200_Click(object sender, EventArgs e)
         {
-            formController.ChangeFormSize(200);
+            formController.scaleFormSize(2);
+            satellitesController.setScale(2);
+            satellitesController.actionCmd(SatellitesControl.Cmd.SCALE);
         }
 
         private void toolStripMenuItem100_Click(object sender, EventArgs e)
         {
-            formController.ChangeFormSize(100);
+            formController.scaleFormSize(1);
+            satellitesController.setScale(1);
+            satellitesController.actionCmd(SatellitesControl.Cmd.SCALE);
         }
 
         private void toolStripMenuItem75_Click(object sender, EventArgs e)
         {
-            formController.ChangeFormSize(75);
+            formController.scaleFormSize(0.75);
+            satellitesController.setScale(0.75);
+            satellitesController.actionCmd(SatellitesControl.Cmd.SCALE);
         }
 
         private void toolStripMenuItem50_Click(object sender, EventArgs e)
         {
-            formController.ChangeFormSize(50);
+            formController.scaleFormSize(0.5);
+            satellitesController.setScale(0.5);
+            satellitesController.actionCmd(SatellitesControl.Cmd.SCALE);
         }
 
         private void toolStripMenuItem25_Click(object sender, EventArgs e)
         {
-            formController.ChangeFormSize(25);
+            formController.scaleFormSize(0.25);
+            satellitesController.setScale(0.25);
+            satellitesController.actionCmd(SatellitesControl.Cmd.SCALE);
         }
 
         /***Change form size***/
@@ -171,7 +184,6 @@ namespace MVCoin
         {
             //animater.setFlyToDst(new Point(Screen.PrimaryScreen.Bounds.Width / 2, Screen.PrimaryScreen.Bounds.Height / 2));
             //animater.run(this, Animation.Effect.FLYTO);
-            stickyCommand("do ping");
         }
 
         private void Form1_MouseLeave(object sender, EventArgs e)
@@ -211,15 +223,6 @@ namespace MVCoin
                 satellitesController.actionCmd(SatellitesControl.Cmd.COLLAPSE);
                 expand = false;
             }            
-        }
-
-        private void stickyCommand(string str)
-        {     
-            string reply = stiController.SendToStickies(str);
-            if (reply.Length == 0)
-                MessageBox.Show("ERROR");
-            //else
-                //MessageBox.Show(reply);
         }
 
         private Point orbitCalculate(int totalNumber, int sequenceNumber)

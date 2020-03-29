@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
+using System.Drawing;
 
 namespace MVCoin
 {
@@ -29,6 +30,17 @@ namespace MVCoin
         public string m_command;
         public bool m_replyreceived;
         public string m_reply;
+                
+        private FormControl formController = new FormControl();
+        private Form satellite;
+        string[] idArray;
+        bool isExpandState = false;
+
+
+        public StickiesControl(Form satelliteInput)
+        {
+            satellite = satelliteInput;
+        }
 
         public int VarPtr(object e)
         {
@@ -112,6 +124,89 @@ namespace MVCoin
             }
         }
 
+        public string[] getIdListDesktop()
+        {
+            string reply = SendToStickies("get list desktop");
+            string[] replyArray = reply.Split(' ');
+            string[] idArray = replyArray[1].Split(',');
+            return idArray;
+        }
 
+        public bool isExpanded()
+        {
+            return isExpandState;
+        }
+
+        public void moveSticky()
+        {
+            idArray = getIdListDesktop();
+            string id;
+            for (int i = 0; i < idArray.Count() - 1; i++)
+            {
+                id = idArray[i];
+                Point stiSize = getStiSize(id);
+                Point stiPos = positionCalculate(idArray.Count(), i, stiSize);
+                SendToStickies("do desktop " + id.ToString() + " rolled");
+                SendToStickies("set desktop " + id.ToString() + " position " + stiPos.X.ToString() + "," + stiPos.Y.ToString());
+            }
+        }
+
+        public void showDesktopSticky()
+        {
+            SendToStickies("do hideall");            
+            idArray = getIdListDesktop();
+            string id;            
+            for (int i = 0; i < idArray.Count() - 1; i++)
+            {
+                id = idArray[i];
+                SendToStickies("do desktop " + id.ToString() + " rolled");
+                Point stiSize = getStiSize(id);
+                Point stiPos = positionCalculate(idArray.Count(), i, stiSize);                                
+                SendToStickies("set desktop " + id.ToString() + " position " + stiPos.X.ToString() + "," + stiPos.Y.ToString());
+            }
+            SendToStickies("do showall");
+            isExpandState = true;
+        }
+
+        private Point positionCalculate(int totalNumber, int sequenceNumber, Point stiSize)
+        {
+            Point stiPoint = new Point();
+            float shiftH = stiSize.X + satellite.Size.Width / 2 + 10; // Horizontal shift
+            float space = stiSize.Y + 10; // space between two stikies in vertical 
+            Point formCenter = formController.getCenter(satellite);
+
+
+            Point fisrtPoint = new Point(formCenter.X - (int)shiftH, formCenter.Y - stiSize.Y / 2);
+
+            if (sequenceNumber == 0) // First pint at right side
+            {
+                stiPoint = fisrtPoint;
+            }
+            else if (sequenceNumber % 2 == 1) // Odd number, above
+            {
+                int num = (sequenceNumber + 1) / 2;
+                float shiftV = space * num; // vertical shift
+                stiPoint = fisrtPoint;
+                stiPoint.Offset(0, (int)shiftV);
+            }
+            else if (sequenceNumber % 2 == 0)  // Even number, under
+            {
+                int num = sequenceNumber / 2;
+                float shiftV = -space * num;
+                stiPoint = fisrtPoint;
+                stiPoint.Offset(0, (int)shiftV);
+            }
+
+            return stiPoint;
+        }
+
+        private Point getStiSize(string id)
+        {            
+            string sizeReply = SendToStickies("get desktop " + id.ToString() + " size");
+            string[] sizeStr = sizeReply.Split(' '); // = {"001", "x,y"}
+            Point stiSize = new Point(Convert.ToInt32(sizeStr[1].Split('x')[0]), Convert.ToInt32(sizeStr[1].Split('x')[1]));
+
+            return stiSize;
+        }
     }
 }

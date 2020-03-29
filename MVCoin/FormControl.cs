@@ -18,17 +18,19 @@ namespace MVCoin
 
         }
 
+        public FormControl(Size size)
+        {
+            width = size.Width;
+            height = size.Height;
+        }
+
         public void setSize(int widthInput, int heightInput)
         {
-            width = widthInput;
-            height = heightInput;
             myForm.Size = new Size(width, height);
         }
 
         public void setSize(int widthInput, int heightInput, Form myForm)
         {
-            width = widthInput;
-            height = heightInput;
             myForm.Size = new Size(width, height);
         }
 
@@ -52,14 +54,18 @@ namespace MVCoin
             return new Point(myForm.Location.X + myForm.Width / 2, myForm.Location.Y + myForm.Height / 2);
         }
 
-        public void ChangeFormSize(int percentage)
+        public void scaleFormSize(double percentage)
         {
-            myForm.Size = new Size(width * percentage / 100, height * percentage / 100);
+            Point center = getCenter();
+            myForm.Size = new Size((int)Math.Round(width * percentage), (int)Math.Round(height * percentage));
+            setCenter(center);
         }
 
-        public void ChangeFormSize(int percentage, Form myForm)
+        public void scaleFormSize(double percentage,Form formInput)
         {
-            myForm.Size = new Size(width * percentage / 100, height * percentage / 100);
+            Point center = getCenter();
+            formInput.Size = new Size((int)Math.Round(formInput.Size.Width * percentage), (int)Math.Round(formInput.Size.Height * percentage));
+            setCenter(center, formInput);
         }
 
 

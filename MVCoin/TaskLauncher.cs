@@ -11,7 +11,13 @@ namespace MVCoin
 
     class TaskLauncher
     {
-        private StickiesControl stiController = new StickiesControl();
+        
+        private Form satellite;
+
+        public TaskLauncher(Form sate)
+        {
+            satellite = sate;
+        }
 
         public void launch(taskName task)
         {
@@ -20,7 +26,8 @@ namespace MVCoin
                 case taskName.NONE:
                     break;
                 case taskName.STICKIES:
-                    string reply = stiController.SendToStickies("do new sticky HaHaHa");
+                    StickiesControl stiController = new StickiesControl(satellite);
+                        stiController.showDesktopSticky();
                     break;
             }
         }

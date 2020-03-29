@@ -10,19 +10,45 @@ namespace MVCoin
 {
     class SatellitesControl
     {
-        public enum Cmd {CREATE, EXPAND, COLLAPSE, MOVE, WATERDOWN, FADEIN };
+        public enum Cmd {CREATE, EXPAND, COLLAPSE, MOVE, WATERDOWN, FADEIN , PASSTASK, SCALE};
         
         Form mainForm = new Form();
         FormControl formController = new FormControl();
         List<Satellite> satelliteList = new List<Satellite>();
         List<Animation> satelliteAniList = new List<Animation>();
         List<Point> satelliteOffsetList = new List<Point>();
-        int satelliteNumber = 6;
+        List<taskName> taskList = new List<taskName>() {taskName.STICKIES };
+        double scaleFactor = 1;
+        int satelliteNumber = 5;
+        int radiusOrbit = 100;
         int i = 0; // Counter
+
+        string[] imgPath =
+            {"../../Icon/sticky.png"};
 
         public SatellitesControl(Form mainFormInput)
         {
             mainForm = mainFormInput;
+        }
+
+        public void setSatelliteNum(int numberInput)
+        {
+            satelliteNumber = numberInput;           
+        }
+
+        public void setTaskList(List<taskName> taskListInput)
+        {
+            taskList = taskListInput;
+        }
+
+        public void setScale(double scaleInput)
+        {
+            scaleFactor = scaleInput;
+        }
+
+        public void setOrbitRadius(int radiusInput)
+        {
+            radiusOrbit = radiusInput;
         }
 
         // Call all the function
@@ -55,6 +81,14 @@ namespace MVCoin
                     case Cmd.FADEIN:
                         fadeIn();
                         break;
+
+                    case Cmd.PASSTASK:
+                        passTask();
+                        break;
+
+                    case Cmd.SCALE:
+                        scale();
+                        break;
                 }
             }
         }
@@ -62,11 +96,19 @@ namespace MVCoin
         private void create()
         {
             satelliteList.Add(new Satellite());
-            satelliteList[i].setBackgroundeImg(Image.FromFile("../../Icon/satellite2.png"));
+            if(i<imgPath.Count())
+            {
+                satelliteList[i].setBackgroundeImg(Image.FromFile(imgPath[i]));
+            }                
+            else
+            {
+                satelliteList[i].setBackgroundeImg(Image.FromFile("../../Icon/satellite2.png"));
+            }
             satelliteList[i].setSerailNum(i);
             satelliteList[i].Show();
             formController.setSize(mainForm.Size.Width, mainForm.Size.Height, satelliteList[i]);
-            formController.ChangeFormSize(50, satelliteList[i]);
+            formController.scaleFormSize(scaleFactor / 2, satelliteList[i]);
+
 
             satelliteAniList.Add(new Animation());
             satelliteAniList[i].setDuration(10);
@@ -88,23 +130,23 @@ namespace MVCoin
         private Point orbitCalculate(int totalNumber, int sequenceNumber)
         {
             Point satellitePoint = new Point();
-            float radius = 50 * 2;
+            int radius = (int)Math.Round(radiusOrbit * scaleFactor);
             float angleStep = 360 / totalNumber; // Unit: angle
 
-            Point fisrtPoint = new Point(formController.getCenter(mainForm).X + (int)radius
+            Point fisrtPoint = new Point(formController.getCenter(mainForm).X - (int)radius
                     , formController.getCenter(mainForm).Y);
 
-            if (sequenceNumber == 0) // First pint at right side
+            if (sequenceNumber == 0) // First pint at left side
             {
                 satellitePoint = fisrtPoint;
             }
-            else if (sequenceNumber % 2 == 1) // Odd number, above
+            else if (sequenceNumber % 2 == 1) // Odd number, under
             {
                 int num = (sequenceNumber + 1) / 2;
                 float angleA = angleStep * num;
                 satellitePoint = MathF.Rotate(fisrtPoint, formController.getCenter(mainForm), angleA);
             }
-            else if (sequenceNumber % 2 == 0)  // Even number, under
+            else if (sequenceNumber % 2 == 0)  // Even number, above
             {
                 int num = sequenceNumber / 2;
                 float angleA = -angleStep * num;
@@ -119,13 +161,18 @@ namespace MVCoin
             satelliteAniList[i].setFlyToDst(formController.getCenter(mainForm));
             satelliteAniList[i].run(satelliteList[i], Animation.Effect.FLYTO);
             satelliteList[i].disappear();
+            satelliteList[i].setIsolatedState(false);
         }
 
         private void move()
         {
-            Point tempPoint = formController.getCenter(mainForm);
-            tempPoint.Offset(satelliteList[i].getOffset());
-            formController.setCenter(tempPoint, satelliteList[i]);
+            if (!satelliteList[i].isIsolated())
+            {
+                Point tempPoint = formController.getCenter(mainForm);
+                tempPoint.Offset(satelliteList[i].getOffset());
+                formController.setCenter(tempPoint, satelliteList[i]);
+            }
+
         }
 
         private void waterDown()
@@ -142,6 +189,26 @@ namespace MVCoin
         {
             satelliteAniList[i].run(satelliteList[i], Animation.Effect.FADEOUT);
         }
+
+        private void passTask()
+        {
+            if (i < taskList.Count()) 
+                satelliteList[i].setTask(taskList[i]);
+        }
+
+        private void scale()
+        {            
+            formController.setSize(mainForm.Size.Width, mainForm.Size.Height, satelliteList[i]);
+            formController.scaleFormSize(scaleFactor / 2, satelliteList[i]);
+            formController.setCenter(orbitCalculate(satelliteNumber, i),satelliteList[i]);
+
+            Point tempPoint = formController.getCenter(satelliteList[i]);
+            tempPoint.Offset(-formController.getCenter(mainForm).X, -formController.getCenter(mainForm).Y);
+            satelliteList[i].setOffset(tempPoint);
+            satelliteList[i].setIsolatedState(false);
+
+        }
+
 
     }
 }

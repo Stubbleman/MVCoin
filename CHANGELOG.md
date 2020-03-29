@@ -6,6 +6,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.4.0] - 2020-03-29
+### Added
+- ```SCALE``` function in ```SatellitesControll``` class to make the whole orbit scale with sun.
+- ```showDesktopSticky``` function.
+- Add sticky icon
+
+### Change
+- ```ChangeFormSize``` name in ```FormControll``` class to ```scaleFormSize```.
+- Make each satellite can be moved individually.
+
+### Fixed
+- Satellites will not scale when sun change.
+
+
 ## [0.3.0] - 2020-03-28
 ### Added
 - Add change log to repository.
@@ -13,8 +27,3 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 - Change ```Animation``` class timer. Fomrs.Timer -> Timers.Timer.
-
-
-### Removed
-
-### Fixed

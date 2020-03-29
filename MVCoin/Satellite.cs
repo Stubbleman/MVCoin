@@ -14,9 +14,11 @@ namespace MVCoin
     {
         private Animation effectAni = new Animation();
         private FormControl formController = new FormControl();
-        private TaskLauncher taskLauncher = new TaskLauncher();
+        private TaskLauncher taskLauncher;
+        private Point mouse_offset;
         private Point offset; // Offset vector from center form
         private bool mouseEntered = false;
+        private bool isolatedState = false; // when the satellite is dragged individually, this = true
         private taskName task;
         private int serialNum = 0;
 
@@ -31,6 +33,7 @@ namespace MVCoin
             this.TransparencyKey = this.BackColor;
             this.FormBorderStyle = FormBorderStyle.None;
             this.Opacity = 0;
+            taskLauncher = new TaskLauncher(this);
         }
 
         public void setBackgroundeImg(Image bgImg)
@@ -54,9 +57,19 @@ namespace MVCoin
             task = taskInput;
         }
 
+        public void setIsolatedState(bool state)
+        {
+            isolatedState = state;
+        }
+
         public Point getOffset()
         {
             return offset;
+        }
+
+        public bool isIsolated()
+        {
+            return isolatedState;
         }
 
         public void appear()
@@ -91,18 +104,33 @@ namespace MVCoin
             }
         }
 
-        private void Satellite_MouseClick(object sender, MouseEventArgs e)
+        private void Satellite_MouseDown(object sender, MouseEventArgs e)
         {
-            taskLauncher.launch(task); 
+            mouse_offset = new Point(-e.X, -e.Y);
         }
 
-        /*
-        public void waterDown()
+        private void Satellite_MouseMove(object sender, MouseEventArgs e)
         {
-            effectAni.setDuration(100);
-            effectAni.setInverval(2);
-            effectAni.run(this, Animation.Effect.WATERDOWN);
+            if (e.Button == MouseButtons.Left)
+            {
+                Point mousePos = Control.MousePosition;
+                mousePos.Offset(mouse_offset.X, mouse_offset.Y);
+                this.Location = mousePos;
+                isolatedState = true;
+                /*** This move too LAG!!!
+                if(task == taskName.STICKIES)
+                {
+                    StickiesControl stiControl = new StickiesControl(this);
+                    if(!stiControl.isExpanded())
+                        stiControl.moveSticky();
+                }
+                */
+            }
         }
-        */
+
+        private void Satellite_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            taskLauncher.launch(task);
+        }
     }
 }
