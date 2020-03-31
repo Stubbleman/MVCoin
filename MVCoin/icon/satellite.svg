@@ -20,7 +20,7 @@
    id="svg28"
    sodipodi:docname="satellite.svg"
    inkscape:version="0.92.4 (5da689c313, 2019-01-14)"
-   inkscape:export-filename="C:\Code\MVCoin\MVCoin\icon\sticky.png"
+   inkscape:export-filename="C:\Code\MVCoin\MVCoin\icon\youtube.png"
    inkscape:export-xdpi="26.011875"
    inkscape:export-ydpi="26.011875"><metadata
    id="metadata34"><rdf:RDF><cc:Work
@@ -40,12 +40,12 @@
    id="namedview30"
    showgrid="false"
    inkscape:zoom="0.084968025"
-   inkscape:cx="136.24107"
+   inkscape:cx="-1846.8579"
    inkscape:cy="2315.0463"
    inkscape:window-x="1912"
    inkscape:window-y="-8"
    inkscape:window-maximized="1"
-   inkscape:current-layer="layer3" />
+   inkscape:current-layer="layer4" />
 <g
    inkscape:groupmode="layer"
    id="layer1"
@@ -83,7 +83,8 @@
      inkscape:export-ydpi="13.005938" /></g><g
    inkscape:groupmode="layer"
    id="layer3"
-   inkscape:label="Sticky"><g
+   inkscape:label="Sticky"
+   style="display:none"><g
      id="g4653"
      transform="translate(-54.939493,-18.496027)"
      style="fill:#ffcc00;stroke:#000000"><path
@@ -110,7 +111,20 @@
      style="fill:#ffffff;stroke:#000000;stroke-width:48.31984711;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
      d="m 1442.5849,2420.2153 h 588.9825"
      id="path4594"
-     inkscape:connector-curvature="0" /></g>
+     inkscape:connector-curvature="0" /></g><g
+   inkscape:groupmode="layer"
+   id="layer4"
+   inkscape:label="youtube"><g
+     id="g850"
+     transform="matrix(3.5986154,0,0,3.5986154,999.85239,1428.9087)"><path
+       id="path836"
+       d="M 501.45312,56.09375 C 495.55078,34.160156 478.25781,16.871094 456.32812,10.964844 416.26172,0 255.99609,0 255.99609,0 255.99609,0 95.734375,0 55.667969,10.546875 34.160156,16.449219 16.445312,34.164062 10.542969,56.09375 0,96.15625 0,179.24219 0,179.24219 c 0,0 0,83.5039 10.542969,123.14843 5.90625,21.92969 23.195312,39.22266 45.128906,45.12891 C 96.15625,358.48437 256,358.48437 256,358.48437 c 0,0 160.26172,0 200.32812,-10.54687 21.9336,-5.90234 39.22266,-23.19531 45.12891,-45.125 C 512,262.74609 512,179.66406 512,179.66406 c 0,0 0.42187,-83.50781 -10.54688,-123.57031 z m 0,0"
+       inkscape:connector-curvature="0"
+       style="fill:#ff0000" /><path
+       id="path838"
+       d="M 204.96875,256 338.23828,179.24219 204.96875,102.48438 Z m 0,0"
+       inkscape:connector-curvature="0"
+       style="fill:#ffffff" /></g></g>
 
 
 

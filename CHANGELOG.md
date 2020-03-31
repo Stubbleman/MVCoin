@@ -6,13 +6,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.5.0] - 2020-03-31
+## Added
+- Add different function for different mouse double click on Satellite
+- Add Youtube viewer task
+- Hide all stickies when double click again.
+
 ## [0.4.0] - 2020-03-29
 ### Added
 - ```SCALE``` function in ```SatellitesControll``` class to make the whole orbit scale with sun.
 - ```showDesktopSticky``` function.
 - Add sticky icon
 
-### Change
+### Changed
 - ```ChangeFormSize``` name in ```FormControll``` class to ```scaleFormSize```.
 - Make each satellite can be moved individually.
 

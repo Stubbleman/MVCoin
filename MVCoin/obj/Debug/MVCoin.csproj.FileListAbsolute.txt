@@ -26,3 +26,4 @@ C:\Users\Stubbleman\Desktop\MVCoin-master\MVCoin-master\MVCoin\obj\Debug\MVCoin.
 C:\Users\Stubbleman\Desktop\MVCoin-master\MVCoin-master\MVCoin\obj\Debug\MVCoin.Properties.Resources.resources
 C:\Users\Stubbleman\Desktop\MVCoin-master\MVCoin-master\MVCoin\obj\Debug\MVCoin.csproj.GenerateResource.Cache
 C:\Code\MVCoin\MVCoin\obj\Debug\MVCoin.Satellite.resources
+C:\Code\MVCoin\MVCoin\obj\Debug\MVCoin.YTViewer.resources

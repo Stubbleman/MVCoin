@@ -168,6 +168,10 @@ namespace MVCoin
             isExpandState = true;
         }
 
+        public void hideAllSticky()
+        {
+            SendToStickies("do hideall");
+        }
         private Point positionCalculate(int totalNumber, int sequenceNumber, Point stiSize)
         {
             Point stiPoint = new Point();

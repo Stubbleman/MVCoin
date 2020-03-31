@@ -32,6 +32,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>logoIcon_2.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -69,6 +72,12 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="TaskLauncher.cs" />
+    <Compile Include="YTViewer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="YTViewer.Designer.cs">
+      <DependentUpon>YTViewer.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -79,6 +88,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Satellite.resx">
       <DependentUpon>Satellite.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="YTViewer.resx">
+      <DependentUpon>YTViewer.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -103,6 +115,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="icon\background_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="icon\cancel.png" />
+    <Content Include="logoIcon_2.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

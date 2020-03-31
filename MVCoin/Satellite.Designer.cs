@@ -37,18 +37,20 @@
             this.ClientSize = new System.Drawing.Size(187, 175);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Location = new System.Drawing.Point(10, 10);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Satellite";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.Text = "Satellite";
             this.TopMost = true;
             this.Load += new System.EventHandler(this.Satellite_Load);
+            this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Satellite_MouseClick);
             this.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.Satellite_MouseDoubleClick);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Satellite_MouseDown);
             this.MouseEnter += new System.EventHandler(this.Satellite_MouseEnter);
             this.MouseLeave += new System.EventHandler(this.Satellite_MouseLeave);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Satellite_MouseMove);
+            this.MouseWheel += new System.Windows.Forms.MouseEventHandler(this.Satellite_MouseWheel);
             this.ResumeLayout(false);
 
         }

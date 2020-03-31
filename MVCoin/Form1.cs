@@ -71,6 +71,45 @@ namespace MVCoin
                 contextMenuStrip1.Show(MousePosition);
         }
 
+        private void Form1_MouseLeave(object sender, EventArgs e)
+        {
+            if (mouseEntered)
+            {
+                animater.run(this, Animation.Effect.WATERDOWN);
+                mouseEntered = false;
+
+                if (expand)
+                    satellitesController.actionCmd(SatellitesControl.Cmd.WATERDOWN);
+            }
+        }
+
+        private void Form1_MouseEnter(object sender, EventArgs e)
+        {
+            if (!mouseEntered)
+            {
+                animater.run(this, Animation.Effect.FADEIN);
+                mouseEntered = true;
+
+                if (expand)
+                    satellitesController.actionCmd(SatellitesControl.Cmd.FADEIN);
+            }
+
+        }
+
+        private void Form1_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            if (!expand)
+            {
+                satellitesController.actionCmd(SatellitesControl.Cmd.EXPAND);
+                expand = true;
+            }
+            else if (expand)
+            {
+                satellitesController.actionCmd(SatellitesControl.Cmd.COLLAPSE);
+                expand = false;
+            }
+        }
+
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -184,45 +223,6 @@ namespace MVCoin
         {
             //animater.setFlyToDst(new Point(Screen.PrimaryScreen.Bounds.Width / 2, Screen.PrimaryScreen.Bounds.Height / 2));
             //animater.run(this, Animation.Effect.FLYTO);
-        }
-
-        private void Form1_MouseLeave(object sender, EventArgs e)
-        {
-            if(mouseEntered)
-            {
-                animater.run(this, Animation.Effect.WATERDOWN);
-                mouseEntered = false;
-
-                if(expand)
-                    satellitesController.actionCmd(SatellitesControl.Cmd.WATERDOWN);
-            }
-        }
-
-        private void Form1_MouseEnter(object sender, EventArgs e)
-        {
-            if (!mouseEntered)
-            {
-                animater.run(this, Animation.Effect.FADEIN);
-                mouseEntered = true;
-
-                if(expand)
-                    satellitesController.actionCmd(SatellitesControl.Cmd.FADEIN);
-            }
-                
-        }
-
-        private void Form1_MouseDoubleClick(object sender, MouseEventArgs e)
-        {
-            if(!expand)
-            {
-                satellitesController.actionCmd(SatellitesControl.Cmd.EXPAND);
-                expand = true;
-            }
-            else if(expand)
-            {
-                satellitesController.actionCmd(SatellitesControl.Cmd.COLLAPSE);
-                expand = false;
-            }            
         }
 
         private Point orbitCalculate(int totalNumber, int sequenceNumber)

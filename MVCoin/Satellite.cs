@@ -41,27 +41,32 @@ namespace MVCoin
             this.BackgroundImage = bgImg;
             this.BackgroundImageLayout = ImageLayout.Stretch;
         }
+
         // Set center offset from center form
         public void setOffset(Point offsetInput)
         {
             offset = offsetInput;
         }
 
+        // Set serial Number
         public void setSerailNum(int numberInput)
         {
             serialNum = numberInput;
         }
 
+        // Set task for this satellite
         public void setTask(taskName taskInput)
         {
             task = taskInput;
         }
 
+        // Set isolated state. Means this form is be moved.
         public void setIsolatedState(bool state)
         {
             isolatedState = state;
         }
 
+        // Get the offset vector of this satellite from mainform
         public Point getOffset()
         {
             return offset;
@@ -72,6 +77,7 @@ namespace MVCoin
             return isolatedState;
         }
 
+        // Animation when this appear
         public void appear()
         {
             effectAni.setDuration(50);
@@ -79,6 +85,7 @@ namespace MVCoin
             effectAni.run(this, Animation.Effect.FADEIN);
         }
 
+        // Animation when this disappear
         public void disappear()
         {
             effectAni.setDuration(50);
@@ -130,7 +137,17 @@ namespace MVCoin
 
         private void Satellite_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            taskLauncher.launch(task);
+            taskLauncher.launch(task, e);
+        }
+
+        private void Satellite_MouseClick(object sender, MouseEventArgs e)
+        {
+            //taskLauncher.launch(task, e);
+        }
+
+        private void Satellite_MouseWheel(object sender, MouseEventArgs e)
+        {
+            taskLauncher.launch(task, e);
         }
     }
 }

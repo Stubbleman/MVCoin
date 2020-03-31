@@ -8,3 +8,4 @@ C:\Code\MVCoin\MVCoin\obj\Release\MVCoin.Satellite.resources
 C:\Code\MVCoin\MVCoin\obj\Release\MVCoin.csproj.GenerateResource.Cache
 C:\Code\MVCoin\MVCoin\obj\Release\MVCoin.exe
 C:\Code\MVCoin\MVCoin\obj\Release\MVCoin.pdb
+C:\Code\MVCoin\MVCoin\obj\Release\MVCoin.YTViewer.resources
