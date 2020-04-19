@@ -17,19 +17,20 @@ namespace MVCoin
         List<Satellite> satelliteList = new List<Satellite>();
         List<Animation> satelliteAniList = new List<Animation>();
         List<Point> satelliteOffsetList = new List<Point>();
-        List<taskName> taskList = new List<taskName>() {taskName.STICKIES, taskName.YTVIEWER};
+        List<taskName> taskList = new List<taskName>() {taskName.STICKIES, taskName.YTVIEWER, taskName.COVID19};
         double scaleFactor = 1;
         int satelliteNumber;
         int radiusOrbit = 100;
         int i = 0; // Counter
 
         string[] imgPath =
-            {"../../Icon/sticky.png", "../../Icon/youtube.png"};
+            {"../../Icon/sticky.png", "../../Icon/youtube.png", "../../Icon/virus.png"};
 
         public SatellitesControl(Form mainFormInput)
         {
             mainForm = mainFormInput;
             satelliteNumber = taskList.Count();
+            //satelliteNumber = 10;
         }
 
         public void setSatelliteNum(int numberInput)
@@ -153,7 +154,7 @@ namespace MVCoin
                 float angleA = -angleStep * num;
                 satellitePoint = MathF.Rotate(fisrtPoint, formController.getCenter(mainForm), angleA);
             }
-
+            
             return satellitePoint;
         }
 

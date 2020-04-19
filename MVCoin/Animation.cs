@@ -106,7 +106,7 @@ namespace MVCoin
         */
         private void timerStart(tmr.ElapsedEventHandler eventInput)
         {
-            actionTimer.Elapsed -= elapseEventHandler; // Clear previous event
+            actionTimer.Elapsed -= elapseEventHandler; // Clear previous event            
             elapseEventHandler = new tmr::ElapsedEventHandler(eventInput); // Create new event
             actionTimer.Elapsed += elapseEventHandler; // Add new event
             actionTimer.Start();
@@ -197,12 +197,10 @@ namespace MVCoin
                 else if (distance < MathF.RSS(step.X, step.Y))
                 {
                     formController.setCenter(dst, formTarget);
-                    //formTarget.Location = dst;
                 }
                 else
                 {
                     formController.setCenter(new Point((int)Math.Ceiling(loc.X + step.X), (int)Math.Ceiling(loc.Y + step.Y)), formTarget);
-                    //formTarget.Location = new Point((int)Math.Ceiling(loc.X + step.X), (int)Math.Ceiling(loc.Y + step.Y));
                 }
             });
         }

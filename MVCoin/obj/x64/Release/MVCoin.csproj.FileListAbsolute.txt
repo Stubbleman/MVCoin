@@ -1,0 +1,1 @@
+C:\Code\MVCoin\MVCoin\bin\x64\Release\MVCoin.exe.config

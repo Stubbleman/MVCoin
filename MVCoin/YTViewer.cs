@@ -85,9 +85,21 @@ namespace MVCoin
             }
         }
 
+        // Set url to urlTextBox
+        public void setUrl(string url)
+        {
+            URLtextBox.Text = url;
+        }
+
         public string VideoId()
         {            
             var ytMatch = new Regex(@"youtu(?:\.be|be\.com)/(?:.*v(?:/|=)|(?:.*/)?)([a-zA-Z0-9-_]+)").Match(_ytUrl);
+            return ytMatch.Success ? ytMatch.Groups[1].Value : string.Empty;
+        }
+
+        public string ListId()
+        {
+            var ytMatch = new Regex(@"youtu(?:\.be|be\.com)/(?:.*list(?:/|=)|(?:.*/)?)([a-zA-Z0-9-_]+)").Match(_ytUrl);
             return ytMatch.Success ? ytMatch.Groups[1].Value : string.Empty;
         }
 
@@ -97,7 +109,14 @@ namespace MVCoin
             id = VideoId();
             if(id != string.Empty)
             {
-                loadVideo(videoIniSize);
+                if (id == "playlist") // If URL is playlist
+                {
+                    id = ListId();
+                    loadList(videoIniSize);
+                }
+                else // URL is normal video
+                    loadVideo(videoIniSize);
+
                 URLtextBox.Visible = false;
             }
 
@@ -130,6 +149,22 @@ namespace MVCoin
                 "allowfullscreen></iframe>" +
                 "</body></html>";
             var url = "https://www.youtube.com/embed/" + id;
+            //webBrowser.Navigate("http://youtube.com/v/" + id + "?version=3");
+            this.Size = new Size(size.Width + 21, size.Height + 21);
+            this.webBrowser.DocumentText = string.Format(embed, size.Width, size.Height, url);
+        }
+
+        private void loadList(Size size)
+        {
+            var embed =
+                "<html><head>" +
+                "<meta http-equiv=\"X-UA-Compatible\" content=\"IE=Edge\"/>" +
+                "</head><body style=\"background-color:black;\">" +
+                "<iframe width=\"{0}\"height=\"{1}\" src=\"{2}\"" +
+                "frameborder = \"0\" allow = \"autoplay; encrypted-media; allowfullscreen\"" +
+                "allowfullscreen></iframe>" +
+                "</body></html>";
+            var url = "https://www.youtube.com/embed/videoseries?list=" + id;
             //webBrowser.Navigate("http://youtube.com/v/" + id + "?version=3");
             this.Size = new Size(size.Width + 21, size.Height + 21);
             this.webBrowser.DocumentText = string.Format(embed, size.Width, size.Height, url);

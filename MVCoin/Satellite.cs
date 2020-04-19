@@ -33,7 +33,6 @@ namespace MVCoin
             this.TransparencyKey = this.BackColor;
             this.FormBorderStyle = FormBorderStyle.None;
             this.Opacity = 0;
-            taskLauncher = new TaskLauncher(this);
         }
 
         public void setBackgroundeImg(Image bgImg)
@@ -58,6 +57,7 @@ namespace MVCoin
         public void setTask(taskName taskInput)
         {
             task = taskInput;
+            taskLauncher = new TaskLauncher(this);
         }
 
         // Set isolated state. Means this form is be moved.
@@ -70,6 +70,11 @@ namespace MVCoin
         public Point getOffset()
         {
             return offset;
+        }
+
+        public taskName getTask()
+        {
+            return task;
         }
 
         public bool isIsolated()
@@ -124,14 +129,14 @@ namespace MVCoin
                 mousePos.Offset(mouse_offset.X, mouse_offset.Y);
                 this.Location = mousePos;
                 isolatedState = true;
-                /*** This move too LAG!!!
+                /** This move too LAG!!!
                 if(task == taskName.STICKIES)
                 {
                     StickiesControl stiControl = new StickiesControl(this);
                     if(!stiControl.isExpanded())
-                        stiControl.moveSticky();
+                        stiControl.moveSticky();                    
                 }
-                */
+                **/
             }
         }
 

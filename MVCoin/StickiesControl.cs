@@ -27,7 +27,7 @@ namespace MVCoin
         }
 
         public int m_commandref;
-        public string m_command;
+        //public string m_command;
         public bool m_replyreceived;
         public string m_reply;
                 

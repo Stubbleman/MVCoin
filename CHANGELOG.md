@@ -6,6 +6,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.7.0] - 2020-04-19
+## Add
+- Execute python code class
+- COVID19 report function. Contributed by Ian Wan
+
+## [0.6.0] - 2020-03-31
+## Added
+- youtube player support playlist also~~ (Suggested by Ian)
+
+## Fixed
+- Viewer collapseState mistake
+
 ## [0.5.0] - 2020-03-31
 ## Added
 - Add different function for different mouse double click on Satellite

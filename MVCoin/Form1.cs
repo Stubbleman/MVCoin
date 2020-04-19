@@ -35,7 +35,8 @@ namespace MVCoin
             formController.myForm = this;
             formController.setSize(100, 115);
             formController.scaleFormSize(1);
-            formController.setCenter(Cursor.Position);
+            //formController.setCenter(Cursor.Position);
+            formController.setCenter(new Point(Screen.PrimaryScreen.Bounds.Width / 2, Screen.PrimaryScreen.Bounds.Height / 2));
 
             animater = new Animation();
             animater.setDuration(100);
