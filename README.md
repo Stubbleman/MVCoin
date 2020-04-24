@@ -9,4 +9,5 @@ A lovely desktop widget can help you do many things~~
 - Add any function by yourself.
 - Support [Stickies](https://www.zhornsoftware.co.uk/stickies/index.html) API.
 - Youtube player
+- COVID19 reporter
 

@@ -7,7 +7,10 @@ import requests
 report = ""
 
 # Taiwan overview from CDC home page.
-overview_request = requests.get('https://covid19dashboard.cdc.gov.tw/dash3')
+overview_request = requests.get(
+    'https://covid19dashboard.cdc.gov.tw/dash3',
+    headers={'Origin': 'https://594250627-atari-embeds.googleusercontent.com'}
+)
 overview_data = overview_request.json()["0"]
 
 # Taiwan confirm cases detail from CDC open data portal.
@@ -16,8 +19,12 @@ detail_request = requests.get('https://od.cdc.gov.tw/eic/Weekly_Age_County_Gende
 detail_data = detail_request.json()
 
 # Global overview from CDC home page.
-global_request = requests.get("https://covid19dashboard.cdc.gov.tw/dash2")
+global_request = requests.get(
+    'https://covid19dashboard.cdc.gov.tw/dash2',
+    headers={'Origin': 'https://594250627-atari-embeds.googleusercontent.com'}
+)
 global_data = global_request.json()["0"]
+
 
 report += "目前全球共%s例確診，死亡%s例，致死率%s\n" % (
     global_data["cases"],
@@ -32,7 +39,7 @@ report += "目前台灣地區共%d例確診，新增%d例，死亡%d例\n" % (
 )
 
 # Important districts in Taiwan
-districts = ["台北市", "新竹市"]
+districts = ["台北市", "新竹縣", "高雄市"]
 
 # Analyse case detail.
 for district in districts:

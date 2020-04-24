@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.7.1] - 2020-04-24
+## Changed
+- COVID19 reporter update by Ian Wan.
+
 ## [0.7.0] - 2020-04-19
 ## Add
 - Execute python code class
