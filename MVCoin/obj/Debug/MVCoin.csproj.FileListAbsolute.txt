@@ -27,3 +27,16 @@ C:\Users\Stubbleman\Desktop\MVCoin-master\MVCoin-master\MVCoin\obj\Debug\MVCoin.
 C:\Users\Stubbleman\Desktop\MVCoin-master\MVCoin-master\MVCoin\obj\Debug\MVCoin.csproj.GenerateResource.Cache
 C:\Code\MVCoin\MVCoin\obj\Debug\MVCoin.Satellite.resources
 C:\Code\MVCoin\MVCoin\obj\Debug\MVCoin.YTViewer.resources
+D:\Code\MVCoin\MVCoin\bin\Debug\MVCoin.exe.config
+D:\Code\MVCoin\MVCoin\obj\Debug\MVCoin.exe
+D:\Code\MVCoin\MVCoin\obj\Debug\MVCoin.pdb
+D:\Code\MVCoin\MVCoin\bin\Debug\MVCoin.exe
+D:\Code\MVCoin\MVCoin\bin\Debug\MVCoin.pdb
+D:\Code\MVCoin\MVCoin\obj\Debug\MVCoin.csprojResolveAssemblyReference.cache
+D:\Code\MVCoin\MVCoin\obj\Debug\MVCoin.Form1.resources
+D:\Code\MVCoin\MVCoin\obj\Debug\MVCoin.Properties.Resources.resources
+D:\Code\MVCoin\MVCoin\obj\Debug\MVCoin.Satellite.resources
+D:\Code\MVCoin\MVCoin\obj\Debug\MVCoin.YTViewer.resources
+D:\Code\MVCoin\MVCoin\obj\Debug\MVCoin.csproj.GenerateResource.Cache
+D:\Code\MVCoin\MVCoin\obj\Debug\MVCoin.MsgBox.resources
+D:\Code\MVCoin\MVCoin\obj\Debug\MVCoin.AboutBox.resources

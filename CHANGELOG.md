@@ -6,6 +6,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.8.0] - 2020-05-04
+## Added
+- Add Bitcoin exchange rate viewer icon
+- Add AboutBox
+
 ## [0.7.1] - 2020-04-24
 ## Changed
 - COVID19 reporter update by Ian Wan.

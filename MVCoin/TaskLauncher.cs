@@ -120,7 +120,10 @@ namespace MVCoin
                 string sArguments = @"virus.py";//這裡是python的檔名字
 
                 string textGet = pyCaller.RunPythonScript(sArguments, "-u", strArr);
-                MessageBox.Show(textGet);
+                MsgBox msgBox = new MsgBox();
+                msgBox.setText(textGet);
+                msgBox.Show();
+                
             }
         }
     }

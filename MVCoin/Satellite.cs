@@ -19,7 +19,7 @@ namespace MVCoin
         private Point offset; // Offset vector from center form
         private bool mouseEntered = false;
         private bool isolatedState = false; // when the satellite is dragged individually, this = true
-        private taskName task;
+        private taskName task = taskName.NONE;
         private int serialNum = 0;
 
         public Satellite()

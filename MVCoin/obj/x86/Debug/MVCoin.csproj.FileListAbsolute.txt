@@ -1,0 +1,11 @@
+C:\Code\MVCoin\MVCoin\bin\x86\Debug\MVCoin.exe.config
+C:\Code\MVCoin\MVCoin\bin\x86\Debug\MVCoin.exe
+C:\Code\MVCoin\MVCoin\bin\x86\Debug\MVCoin.pdb
+C:\Code\MVCoin\MVCoin\obj\x86\Debug\MVCoin.csprojResolveAssemblyReference.cache
+C:\Code\MVCoin\MVCoin\obj\x86\Debug\MVCoin.Form1.resources
+C:\Code\MVCoin\MVCoin\obj\x86\Debug\MVCoin.Properties.Resources.resources
+C:\Code\MVCoin\MVCoin\obj\x86\Debug\MVCoin.Satellite.resources
+C:\Code\MVCoin\MVCoin\obj\x86\Debug\MVCoin.YTViewer.resources
+C:\Code\MVCoin\MVCoin\obj\x86\Debug\MVCoin.csproj.GenerateResource.Cache
+C:\Code\MVCoin\MVCoin\obj\x86\Debug\MVCoin.exe
+C:\Code\MVCoin\MVCoin\obj\x86\Debug\MVCoin.pdb

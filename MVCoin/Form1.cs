@@ -258,9 +258,13 @@ namespace MVCoin
         // "About" button
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Make Maker Village great again~~~LOL", "About",MessageBoxButtons.OK);
+            AboutBox aboutBox = new AboutBox();
+            aboutBox.setName("MVCoin");
+            aboutBox.setVersion("Ver. 0.8.0");
+            aboutBox.setCopyright("Copyright 2020");
+            aboutBox.setCompany("MAKER VILLAGE");
+            aboutBox.setDescription("Make Maker Village great again~~~LOL");
+            aboutBox.Show();
         }
-
-
     }
 }

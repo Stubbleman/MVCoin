@@ -9,3 +9,15 @@ C:\Code\MVCoin\MVCoin\obj\Release\MVCoin.csproj.GenerateResource.Cache
 C:\Code\MVCoin\MVCoin\obj\Release\MVCoin.exe
 C:\Code\MVCoin\MVCoin\obj\Release\MVCoin.pdb
 C:\Code\MVCoin\MVCoin\obj\Release\MVCoin.YTViewer.resources
+D:\Code\MVCoin\MVCoin\bin\Release\MVCoin.exe.config
+D:\Code\MVCoin\MVCoin\obj\Release\MVCoin.exe
+D:\Code\MVCoin\MVCoin\obj\Release\MVCoin.pdb
+D:\Code\MVCoin\MVCoin\bin\Release\MVCoin.exe
+D:\Code\MVCoin\MVCoin\bin\Release\MVCoin.pdb
+D:\Code\MVCoin\MVCoin\obj\Release\MVCoin.csprojResolveAssemblyReference.cache
+D:\Code\MVCoin\MVCoin\obj\Release\MVCoin.Form1.resources
+D:\Code\MVCoin\MVCoin\obj\Release\MVCoin.Properties.Resources.resources
+D:\Code\MVCoin\MVCoin\obj\Release\MVCoin.Satellite.resources
+D:\Code\MVCoin\MVCoin\obj\Release\MVCoin.YTViewer.resources
+D:\Code\MVCoin\MVCoin\obj\Release\MVCoin.csproj.GenerateResource.Cache
+D:\Code\MVCoin\MVCoin\obj\Release\MVCoin.MsgBox.resources
